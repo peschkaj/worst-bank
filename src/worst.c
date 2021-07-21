@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "include/menu.h"
+#include "menu.h"
 
 #define PROJECT_NAME "worst"
 
@@ -10,7 +10,9 @@ int main() {
     print_menu();
     action = read_menu_option();
 
-    if (action == Error) {
+    if (action == Unknown) {
+      printf("I didn't get that, can you try again?\n\n");
+    } else if (action == Error) {
       perror("Unable to parse command.");
       return -1;
     }

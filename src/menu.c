@@ -27,7 +27,17 @@ Action read_menu_option() {
     int result = sscanf(buffer, "%d", &input);
 
     if (result == 1) {
-      action = (Action)input;
+      switch (input) {
+        case 0:
+          action = Exit;
+          break;
+        case 1:
+          action = CreateUser;
+          break;
+        default:
+          action = Unknown;
+          break;
+      }
     }
   }
 
